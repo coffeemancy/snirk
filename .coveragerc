@@ -1,0 +1,7 @@
+[run]
+branch = True
+omit =
+    # omit cached files
+    __pycache__/*
+    .pytest_cache/*
+

@@ -1,0 +1,44 @@
+[tool.black]
+line-length = 119
+
+[tool.poetry]
+name = "snirk"
+version = "0.1.0"
+description = "Python wrapper for SNES Interface (SNI) gRPC API providing typed async interfaces."
+license = "GPL-3.0-or-later"
+authors = ["C <mxcoffeemancy@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/coffeemancy/snirk"
+repository = "https://github.com/coffeemancy/snirk"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers"
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+grpcio = "^1.60.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+flake8 = "^7.0.0"
+grpcio-tools = "^1.60.1"
+isort = "^5.12.0"
+mypy = "^1.8.0"
+types-protobuf = "^4.24.0.20240129"
+
+[tool.poetry.group.docs.dependencies]
+mdformat-mkdocs = {extras = ["recommended"], version = "^2.0.3"}
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.10"
+mkdocstrings = {extras = ["python"], version = "^0.24.0"}
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0.1"
+pytest-cov = "^4.1.0"
+
+[tool.poetry_bumpversion.file."snirk/__init__.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
