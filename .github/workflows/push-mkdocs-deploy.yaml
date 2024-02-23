@@ -1,0 +1,41 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # install and configure poetry
+      # https://github.com/marketplace/actions/install-poetry-action
+      - name: Install poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      # load cached venv, if exists
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      # install dependencies if cache does not exist
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
+      # install project
+      - name: Install project
+        run: poetry install --no-interaction
+      # build and publish docs to github pages
+      - name: Publish docs to github pages
+        run: mkdocs gh-deploy --force --clean --verbose
