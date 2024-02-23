@@ -1,6 +1,16 @@
 site_name: snirk
 nav:
   - home: index.md
+  - usage: usage.md
+  - api:
+    - index: api/index.md
+    - api: api/api.md
+    - fs: api/fs.md
+    - types: api/types.md
+  - development:
+    - overview: dev/index.md
+    - Release process: dev/release-process.md
+    - SNI gRPC code generation: dev/sni-grpc-codegen.md
 markdown_extensions:
   - admonition
   - pymdownx.details
