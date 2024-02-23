@@ -4,4 +4,7 @@ omit =
     # omit cached files
     __pycache__/*
     .pytest_cache/*
+    # omit tests themselves
+    tests/*
+
 
