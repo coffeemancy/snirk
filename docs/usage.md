@@ -15,6 +15,11 @@ from snirk import Snirk
 snirk = Snirk()
 ```
 
+!!! note
+
+    By default, this uses an SNI server found at `localhost:8191`. If SNI is running on a different host
+    or port, that channel can be specified at instantiation.
+
 ### AsyncIO Overview
 
 Snirk uses [`asyncio`][asyncio] for asynchronous communication to SNI devices (e.g. using `async`/`await`).

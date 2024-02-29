@@ -71,7 +71,7 @@ function pre_commit_mkdocs {
 function pre_commit_mypy {
   echo -ne "\e[36mmypy\e[0m"
   if [[ -n "${SKIP_MYPY:-}" ]]; then skip_command; return; fi
-  mypy snirk --pretty >"${LAST_LOG}" 2>&1
+  mypy . --pretty >"${LAST_LOG}" 2>&1
   success
 }
 

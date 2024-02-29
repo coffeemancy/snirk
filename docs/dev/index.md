@@ -92,6 +92,8 @@ Currently there is very little actually tested via `pytest`. Due to the nature o
 functional, having to mock all SNI communication. Nonetheless, some additional coverage with `pytest` is expected
 in the future.
 
+The [pytest-asyncio plugin for `pytest`][pytest-asyncio] is used which adds support for testing `asyncio` coroutines.
+
 To provide for additional coherence checking, Snirk uses `mypy` for type-checking. The intention is to catch many
 possible avenues for problems this way, in addition to code formatting (`black`) and linters.
 
@@ -150,6 +152,7 @@ mkdocs serve
 [poetry]: https://python-poetry.org
 [pypi]: https://pypi.org/project/snirk
 [pytest]: https://docs.pytest.org/en/8.0.x
+[pytest-asyncio]: https://pytest-asyncio.readthedocs.io
 [release-process]: release-process.md
 [shellcheck]: https://github.com/koalaman/shellcheck
 [sni-grpc-codegen]: sni-grpc-codegen.md
