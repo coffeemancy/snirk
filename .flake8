@@ -1,0 +1,7 @@
+[flake8]
+exclude = .git, .venv, __pycache__
+max-line-length = 119
+per-file-ignores =
+  __init__.py:F401,
+  # ignore line length on autogen DESCRIPTOR line
+  snirk/sni/sni_pb2.py:E501

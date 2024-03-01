@@ -1,0 +1,60 @@
+name: docs tests
+on:
+  pull_request:
+    paths:
+      - .github/workflows/pr-docstests.yaml
+      - .markdownlint.yaml
+      - '**.md'
+      - mkdocs.yml
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+      # install markdownlint-cli
+      - name: Install markdownlint-cli
+        run: npm install -g --update-notifier=false markdownlint-cli@0.39.0
+      # markdownlint
+      - name: Run markdownlint
+        run: markdownlint ./**/*.md
+  mkdocs:
+    needs: markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # install and configure poetry
+      # https://github.com/marketplace/actions/install-poetry-action
+      - name: Install poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      # load cached venv, if exists
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      # install docs dependencies if cache does not exist
+      - name: Install docs dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root --only=docs
+      # activate venv
+      - name: Activate virtualenv
+        run: |
+            source .venv/bin/activate
+            echo PATH=$PATH >> $GITHUB_ENV
+      # mkdocs build
+      - name: Run mkdocs build
+        run: mkdocs build

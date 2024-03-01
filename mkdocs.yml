@@ -1,0 +1,55 @@
+site_name: snirk
+nav:
+  - home: index.md
+  - usage: usage.md
+  - api:
+    - index: api/index.md
+    - api: api/api.md
+    - fs: api/fs.md
+    - types: api/types.md
+  - development:
+    - overview: dev/index.md
+    - Release process: dev/release-process.md
+    - SNI gRPC code generation: dev/sni-grpc-codegen.md
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            docstring_style: sphinx
+            line_length: 119
+            separate_signature: true
+            show_root_heading: true
+            show_source: true
+            show_symbol_type_heading: true
+theme:
+  name: material
+  features:
+    - search.suggest
+  palette:
+    # light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      accent: indigo
+      primary: deep-purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      accent: indigo
+      primary: deep-purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
