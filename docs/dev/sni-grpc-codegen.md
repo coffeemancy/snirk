@@ -24,4 +24,3 @@ new gRPC code.
 [protobuf]: https://github.com/protocolbuffers/protobuf
 [proto files]: https://github.com/alttpo/sni/tree/main/protos/sni
 [sni]: https://github.com/alttpo/sni
-
