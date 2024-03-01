@@ -2,7 +2,7 @@ name: docs tests
 on:
   pull_request:
     paths:
-      - .github/workflows/pr-markdownlint.yaml
+      - .github/workflows/pr-docstests.yaml
       - .markdownlint.yaml
       - '**.md'
       - mkdocs.yml
@@ -13,9 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-      # https://github.com/marketplace/actions/npm-or-yarn-install-with-caching
-      - name: Install npm
-        uses: bahmutov/npm-install@v1
+      - name: Setup node
+        uses: actions/setup-node@v4
       # install markdownlint-cli
       - name: Install markdownlint-cli
         run: npm install -g --update-notifier=false markdownlint-cli@0.39.0
@@ -51,6 +50,11 @@ jobs:
       - name: Install docs dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root --only=docs
+      # activate venv
+      - name: Activate virtualenv
+        run: |
+            source .venv/bin/activate
+            echo PATH=$PATH >> $GITHUB_ENV
       # mkdocs build
       - name: Run mkdocs build
         run: mkdocs build

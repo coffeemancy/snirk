@@ -38,6 +38,11 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root
+      # activate venv
+      - name: Activate virtualenv
+        run: |
+            source .venv/bin/activate
+            echo PATH=$PATH >> $GITHUB_ENV
       # black
       - name: Run black
         run: black .
@@ -79,6 +84,11 @@ jobs:
       # install project
       - name: Install project
         run: poetry install --no-interaction
+      # activate venv
+      - name: Activate virtualenv
+        run: |
+            source .venv/bin/activate
+            echo PATH=$PATH >> $GITHUB_ENV
       # mypy
       - name: Run mypy
         run: mypy snirk --pretty
@@ -111,6 +121,11 @@ jobs:
       - name: Install docs dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root --only=docs
+      # activate venv
+      - name: Activate virtualenv
+        run: |
+            source .venv/bin/activate
+            echo PATH=$PATH >> $GITHUB_ENV
       # mkdocs build
       - name: Run mkdocs build
         run: mkdocs build
@@ -146,6 +161,11 @@ jobs:
       # install project
       - name: Install project
         run: poetry install --no-interaction
+      # activate venv
+      - name: Activate virtualenv
+        run: |
+            source .venv/bin/activate
+            echo PATH=$PATH >> $GITHUB_ENV
       # pytest
       - name: Run pytest
         run: pytest --cov
