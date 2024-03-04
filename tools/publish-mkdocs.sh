@@ -27,7 +27,7 @@ if [[ -z "${VIRTUAL_ENV:-}" ]]; then
   fi
 fi
 
-if [ -n "${GITHUB_TOKEN:-}" ]; then
+if [[ -n "${GITHUB_TOKEN:-}" ]]; then
   echo "Using GITHUB_TOKEN..."
   remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/coffeemancy/snirk.git"
 else
