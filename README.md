@@ -26,8 +26,8 @@ are welcome and encouraged!
 Additional development and contribution details are provided in [developer documentation][dev docs].
 
 [black]: https://pypi.org/project/black
-[docs-site]: docs/index.md
-[dev docs]: docs/dev/index.md
+[docs-site]: https://coffeemancy.github.io/snirk
+[dev docs]: https://coffeemancy.github.io/snirk
 [mypy]: https://www.mypy-lang.org
 [poetry]: https://python-poetry.org
 [pypi]: https://pypi.org/project/snirk
