@@ -20,7 +20,7 @@ jobs:
         run: npm install -g --update-notifier=false markdownlint-cli@0.39.0
       # markdownlint
       - name: Run markdownlint
-        run: markdownlint ./**/*.md
+        run: markdownlint .
   mkdocs:
     needs: markdownlint
     runs-on: ubuntu-latest

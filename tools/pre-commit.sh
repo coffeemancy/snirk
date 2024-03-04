@@ -56,7 +56,7 @@ function pre_commit_markdownlint {
   echo -ne "\e[36mmarkdownlint\e[0m"
   if [[ -n "${SKIP_MARKDOWN:-}" ]]; then skip_command; return; fi
   if ! command -v markdownlint >/dev/null; then missing_command; return; fi
-  markdownlint ./**/*.md >"${LAST_LOG}" 2>&1
+  markdownlint . >"${LAST_LOG}" 2>&1
   success
 }
 
