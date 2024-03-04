@@ -18,6 +18,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.11"
 grpcio = "^1.60.1"
+protobuf = "^4.25.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.2.0"
