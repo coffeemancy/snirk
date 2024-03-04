@@ -38,6 +38,8 @@ included in developer dependencies:
 * [`markdownlint-cli`][markdownlint]: error/quality checking of markdown files (e.g. documentation)
 * [`shellcheck`][shellcheck]: error/quality checking of shell files
 
+### contribution workflow
+
 The recommended approach for making contributions follows:
 
 * Assure all local tests work before making changes
@@ -49,7 +51,16 @@ The recommended approach for making contributions follows:
 * Receive review and iterate on any requested changes
 * PR is merged by repo maintainers
 
-## local testing
+## testing
+
+The testing stragegy follows:
+
+* Catch syntax issues and common "gotchas" via code formatters (`black`) and linters (`flake8`)
+* Use `mypy` type-checking to catch many possible problems and boundary issues
+* Unit testing via `pytest` for snirk-specific logic (e.g. filtering finding devices, checking device capabilities)
+* Runnable `examples/`  to interact with actual SNI server and devices (e.g. Fx Pak Pro, Retroarch)
+
+### local testing
 
 An example [`git` pre-commit hook][git-pre-commit] script is included which can be used to automate local testing. If
 installed, it will be run before a commit can be made.
@@ -86,16 +97,13 @@ shellcheck  ✔
 pytest (Python 3.11.7) ✔
 ```
 
-### testing strategy
+### unit testing
 
-Currently there is very little actually tested via `pytest`. Due to the nature of this work, most testing would be
-functional, having to mock all SNI communication. Nonetheless, some additional coverage with `pytest` is expected
-in the future.
+Most of the code in this repo involves wrapping communication to devices with SNI. As such, unit testing coverage
+via `pytest` is limited, requiring mocking of SNI gRPC calls. Currently, there is around 44% coverage. Tests are 
+included in the `tests/` directory.
 
 The [pytest-asyncio plugin for `pytest`][pytest-asyncio] is used which adds support for testing `asyncio` coroutines.
-
-To provide for additional coherence checking, Snirk uses `mypy` for type-checking. The intention is to catch many
-possible avenues for problems this way, in addition to code formatting (`black`) and linters.
 
 ### running examples
 

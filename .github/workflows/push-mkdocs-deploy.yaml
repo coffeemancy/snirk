@@ -3,12 +3,11 @@ on:
   push:
     branches:
       - main
-permissions:
-  pages: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
