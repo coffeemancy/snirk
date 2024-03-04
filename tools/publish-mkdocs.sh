@@ -45,4 +45,4 @@ if ! git remote | grep mkdocspush; then
 fi
 
 echo "Publishing mkdocs..."
-mkdocs gh-deploy --force --clean --verbose --remote-name mkdocspush
+mkdocs gh-deploy --force --clean --remote-name mkdocspush
