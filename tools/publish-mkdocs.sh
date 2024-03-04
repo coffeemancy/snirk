@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-SNIRK_VENV="${SNIRK_VENV:-.venv/snirk}"
+SNIRK_VENV="${SNIRK_VENV:-.venv}"
 
 # make sure not being run as root or with "sudo"
 if (( EUID == 0 )); then

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 GITROOT="$(builtin cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." &>/dev/null && builtin pwd)"
-SNIRK_VENV="${SNIRK_VENV:-.venv/snirk}"
+SNIRK_VENV="${SNIRK_VENV:-.venv}"
 
 # make sure not being run as root or with "sudo"
 if (( EUID == 0 )); then

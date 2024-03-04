@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # update below to path to venv if different
-VENV=".venv/snirk"
+VENV=".venv"
 
 function missing_command { echo -e " \e[40m (missing command)\e[0m"; }
 function skip_command { echo -e " \e[1;35m?\e[0m"; }
