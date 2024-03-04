@@ -11,8 +11,12 @@ After the version is updated, and the release is built, it can be [published wit
 The release workflow follows:
 
 * Use `poetry version` to bump version
+* Update `CHANGELOG.md`
+* Create and merge pull request off release branch
+* Create Github Release / tag for new version
+* Checkout updated `main` after PR merges
 * Build with `poetry build`
-* Publish with `poetry publish`
+* Publish to PyPI with `poetry publish`
 
 ### publishing docs
 
