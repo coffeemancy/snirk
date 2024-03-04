@@ -27,7 +27,7 @@ Additional development and contribution details are provided in [developer docum
 
 [black]: https://pypi.org/project/black
 [docs-site]: https://coffeemancy.github.io/snirk
-[dev docs]: https://coffeemancy.github.io/snirk
+[dev docs]: https://coffeemancy.github.io/snirk/dev
 [mypy]: https://www.mypy-lang.org
 [poetry]: https://python-poetry.org
 [pypi]: https://pypi.org/project/snirk
