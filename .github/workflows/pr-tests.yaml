@@ -91,7 +91,7 @@ jobs:
             echo PATH=$PATH >> $GITHUB_ENV
       # mypy
       - name: Run mypy
-        run: mypy snirk --pretty
+        run: mypy . --pretty
   mkdocs:
     needs: linting
     runs-on: ubuntu-latest
