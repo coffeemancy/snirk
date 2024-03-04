@@ -3,7 +3,7 @@ line-length = 119
 
 [tool.poetry]
 name = "snirk"
-version = "0.2.0"
+version = "0.2.1"
 description = "Python wrapper for SNES Interface (SNI) gRPC API providing typed async interfaces."
 license = "GPL-3.0-or-later"
 authors = ["C <mxcoffeemancy@gmail.com>"]
