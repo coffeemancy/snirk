@@ -16,7 +16,7 @@ poetry install
 
     You can use a different path for your venv if desired. It doesn't have to be `.venv`.
 
-## development and contributions overview 
+## development and contributions overview
 
 Snirk uses several tools as part of the development stack.
 
@@ -100,7 +100,7 @@ pytest (Python 3.11.7) ✔
 ### unit testing
 
 Most of the code in this repo involves wrapping communication to devices with SNI. As such, unit testing coverage
-via `pytest` is limited, requiring mocking of SNI gRPC calls. Currently, there is around 44% coverage. Tests are 
+via `pytest` is limited, requiring mocking of SNI gRPC calls. Currently, there is around 44% coverage. Tests are
 included in the `tests/` directory.
 
 The [pytest-asyncio plugin for `pytest`][pytest-asyncio] is used which adds support for testing `asyncio` coroutines.
@@ -151,12 +151,10 @@ mkdocs serve
 [black]: https://github.com/psf/black
 [flake8]: https://github.com/pycqa/flake8
 [git-pre-commit]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
-[grpc-tools]: https://pypi.org/project/grpc-tools
 [isort]: https://pycqa.github.io/isort
 [markdownlint]: https://github.com/igorshubovych/markdownlint-cli
 [mkdocs]: https://www.mkdocs.org
 [mypy]: https://www.mypy-lang.org
-[poetry-bumpversion]: https://github.com/monim67/poetry-bumpversion
 [poetry]: https://python-poetry.org
 [pypi]: https://pypi.org/project/snirk
 [pytest]: https://docs.pytest.org/en/8.0.x
