@@ -17,7 +17,8 @@ The release workflow follows:
 ### publishing docs
 
 The GitHub Actions workflow at `.github/workflows/push-mkdocs-deploy.yaml` is run when a PR is merged to `main`
-which builds and publishes documentation to [github pages][gh-pages] using [`mkdocs`][mkdocs]. 
+which builds and publishes documentation to [github pages][gh-pages] using [`mkdocs`][mkdocs] via running
+the script at `tools/publish-mkdocs.sh`.
 
 [gh-pages]: https://coffeemancy.github.io/snirk
 [mkdocs]: https://www.mkdocs.org

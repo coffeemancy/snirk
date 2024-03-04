@@ -37,11 +37,6 @@ jobs:
       # install project
       - name: Install project
         run: poetry install --no-interaction
-      # activate venv
-      - name: Activate virtualenv
-        run: |
-            source .venv/bin/activate
-            echo PATH=$PATH >> $GITHUB_ENV
       # build and publish docs to github pages
       - name: Publish docs to github pages
-        run: mkdocs gh-deploy --force --clean --verbose
+        run: ./tools/publish-mkdocs.sh
